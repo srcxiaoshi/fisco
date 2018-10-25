@@ -1,0 +1,96 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.6.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+
+apply plugin: 'maven'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+repositories {
+	maven {
+		url "http://maven.aliyun.com/nexus/content/groups/public/"
+	}
+
+	mavenLocal()
+	mavenCentral()
+}
+
+List logger = [
+		"org.slf4j:jul-to-slf4j:1.7.10",
+		"org.apache.logging.log4j:log4j-api:2.1",
+		"org.apache.logging.log4j:log4j-core:2.1",
+		"org.apache.logging.log4j:log4j-slf4j-impl:2.1",
+		"org.apache.logging.log4j:log4j-web:2.1"
+]
+
+def spring_version="5.0.2.RELEASE"
+List spring =[
+		"org.springframework:spring-core:$spring_version",
+		"org.springframework:spring-beans:$spring_version",
+		"org.springframework:spring-context:$spring_version",
+		"org.springframework:spring-tx:$spring_version",
+		"org.springframework:spring-jdbc:$spring_version",
+		"org.springframework:spring-test:$spring_version"
+]
+
+dependencies {
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+	compile "com.fasterxml.jackson.core:jackson-databind:2.8.8.1"
+	runtime "com.fasterxml.jackson.core:jackson-databind:2.8.8.1"
+	compile 'io.netty:netty-all:4.1.15.Final'
+	runtime 'io.netty:netty-all:4.1.15.Final'
+	compile 'io.netty:netty-tcnative:2.0.0.Final'
+	runtime 'io.netty:netty-tcnative:2.0.0.Final'
+	compile 'com.google.guava:guava:19.0'
+	runtime 'com.google.guava:guava:19.0'
+	compile files('lib/web3sdk.jar')
+	runtime files('lib/web3sdk.jar')
+	compile files('lib/fastjson-1.2.24.jar')
+	runtime files('lib/fastjson-1.2.24.jar')
+	// web3j依赖
+	compile 'org.apache.httpcomponents:httpclient:4.5.2',
+			'org.bouncycastle:bcprov-jdk15on:1.54',
+			'com.lambdaworks:scrypt:1.4.0',
+			'com.squareup:javapoet:1.7.0',
+			'io.reactivex:rxjava:1.2.4',
+			'com.github.jnr:jnr-unixsocket:0.15'
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir 'com.example.demo'
+		}
+		resources  {
+			srcDir 'resources'
+		}
+	}
+}
+
+jar {
+	destinationDir file('/lib')
+	archiveName project.name + '.jar'
+	exclude '**/*.xml'
+	exclude '**/*.properties'
+
+}

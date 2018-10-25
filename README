@@ -1,0 +1,24 @@
+2018-10-25 15:57:43.540  INFO 12844 --- [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-10-25 15:57:43.540  INFO 12844 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-10-25 15:57:43.557  INFO 12844 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+2018-10-25 15:57:43.651  INFO 12844 --- [nio-8080-exec-2] o.s.c.s.ClassPathXmlApplicationContext   : Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3b54a2a1: startup date [Thu Oct 25 15:57:43 CST 2018]; root of context hierarchy
+2018-10-25 15:57:43.657  INFO 12844 --- [nio-8080-exec-2] o.s.b.f.xml.XmlBeanDefinitionReader      : Loading XML bean definitions from class path resource [applicationContext.xml]
+2018-10-25 15:57:44.136  INFO 12844 --- [nio-8080-exec-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'pool'
+我启动了 !
+-->区块数目: 39
+2018-10-25 15:58:01.697  INFO 12844 --- [pool-2-thread-1] org.bcos.web3j.tx.RawTransactionManager  : sendTransaction randomid: 1427062471861915027231478238656593637331846966173652986081881888846178538898 blockLimit:539
+2018-10-25 15:58:01.870  INFO 12844 --- [ntLoopGroup-2-1] org.bcos.channel.client.Service          : receive transaction success seq:9615a8e6f5144e50b741824e92e0307c
+2018-10-25 15:58:01.870  INFO 12844 --- [ntLoopGroup-2-1] org.bcos.channel.client.Service          : callback is null
+woshi demo
+部署合约 :null,地址 :0xcfdbb9433ee7690cce8016f1578dd25c0082b9fa
+地址：0xcfdbb9433ee7690cce8016f1578dd25c0082b9fa
+在交易之前的name:woshi demo
+2018-10-25 15:58:03.410  INFO 12844 --- [pool-2-thread-1] org.bcos.web3j.tx.RawTransactionManager  : sendTransaction randomid: 1628521742288746013219809406175407337670897511961011460908145485774087392176 blockLimit:539
+2018-10-25 15:58:03.895  INFO 12844 --- [ntLoopGroup-2-1] org.bcos.channel.client.Service          : receive transaction success seq:9b58558029694c10903853c49d969f00
+2018-10-25 15:58:03.895  INFO 12844 --- [ntLoopGroup-2-1] org.bcos.channel.client.Service          : callback is null
+在交易之后的name:史瑞昌
+<--开始数量 = 39,结束数量=41
+重新查询合约的值name=:史瑞昌
+
+
+以上是使用搭建的springboot 简单做的一个接口例子，方便小伙伴使用
